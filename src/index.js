@@ -48,7 +48,7 @@ const MorrisonsTabs = (function(tt) {
     function TopTabs(options) {
       const defaults = {
         activeTab: 0,
-        totalTabs: 6,
+        totalTabs: Math.trunc(window.innerWidth / 150),
         channels: [
           {
             name: 'Groceries',
