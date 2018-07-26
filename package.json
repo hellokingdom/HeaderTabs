@@ -1,0 +1,18 @@
+{
+  "name": "parcel-sandbox",
+  "version": "1.0.0",
+  "description": "Simple Parcel Sandbox",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "postcss": "7.0.1",
+    "postcss-modules": "1.3.0",
+    "redom": "3.12.7"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.6.1"
+  }
+}

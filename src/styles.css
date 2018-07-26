@@ -1,0 +1,40 @@
+.tabHeader {
+  font-size: 12px;
+  line-height: 1.15;
+  color: #00020f;
+  font-family: MorrisonsAgenda, Arial, sans-serif;
+}
+
+.tabList {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  background-color: #ececec;
+}
+
+.tabLayout {
+  border: 1px solid #d7d7d7;
+  background-color: #ffffff;
+  margin: 0 5px;
+  flex: 0 0 120px;
+  text-align: center;
+}
+
+.tabLayout a {
+  display: block;
+  color: #004e37b3;
+  text-decoration: none;
+  padding: 9px 15px 5px;
+}
+
+.tabLayout a:hover {
+  color: black;
+}
+
+.tabActive {
+  border-bottom: none;
+}
+
+.tabActive a {
+  text-decoration: none;
+}
