@@ -3,6 +3,8 @@
   line-height: 1.15;
   color: #00020f;
   font-family: MorrisonsAgenda, Arial, sans-serif;
+  width: 100%;
+  overflow: hidden;
 }
 
 .tabList {
@@ -37,4 +39,10 @@
 
 .tabActive a {
   text-decoration: none;
+}
+.isHidden {
+  display: none;
+}
+.isVisible {
+  display: block;
 }

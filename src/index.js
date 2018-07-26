@@ -3,9 +3,16 @@ import classNames from './styles.css'
 
 class Li {
   update(data, index, items, context) {
+    const isVisible =
+      index < context.totalTabs ? classNames.isVisible : classNames.isHidden
     if (index === context.activeTab) {
       this.el = el(
-        'li.' + classNames.tabLayout + '.' + classNames.tabActive,
+        'li.' +
+          classNames.tabLayout +
+          '.' +
+          classNames.tabActive +
+          '.' +
+          isVisible,
         el('a', {
           text: data.name,
           href: data.link
@@ -13,7 +20,7 @@ class Li {
       )
     } else {
       this.el = el(
-        'li.' + classNames.tabLayout,
+        'li.' + classNames.tabLayout + '.' + isVisible,
         el('a', { text: data.name, href: data.link })
       )
     }
@@ -41,6 +48,7 @@ const MorrisonsTabs = (function(tt) {
     function TopTabs(options) {
       const defaults = {
         activeTab: 0,
+        totalTabs: 6,
         channels: [
           {
             name: 'Groceries',
@@ -72,15 +80,22 @@ const MorrisonsTabs = (function(tt) {
       this.options = extend(defaults, options)
     }
 
-    TopTabs.prototype.createTabs = function() {
-      const ul = list('ul.' + classNames.tabList, Li)
-      ul.update(this.options.channels, { activeTab: this.options.activeTab })
-      return ul
-    }
-
     TopTabs.prototype.addTabs = function() {
-      const ul = this.createTabs()
+      const ul = list('ul.' + classNames.tabList, Li)
+      ul.update(this.options.channels, {
+        activeTab: this.options.activeTab,
+        totalTabs: this.options.totalTabs
+      })
       const layout = el('div.' + classNames.tabHeader, ul)
+      const resize = () => {
+        ul.update(this.options.channels, {
+          activeTab: this.options.activeTab,
+          totalTabs: Math.trunc(window.innerWidth / 150)
+        })
+      }
+      window.onresize = function(event) {
+        resize()
+      }
       mount(document.body, layout, document.body.firstChild)
     }
 
@@ -96,6 +111,6 @@ const MorrisonsTabs = (function(tt) {
 })(window.morrisonstabs || {})
 
 // Code intialised on the target site
-// window.morrisonstabs.init({
-//   activeTab: 0
-// })
+window.morrisonstabs.init({
+  activeTab: 3
+})
