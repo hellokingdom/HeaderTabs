@@ -96,6 +96,6 @@ const MorrisonsTabs = (function(tt) {
 })(window.morrisonstabs || {})
 
 // Code intialised on the target site
-window.morrisonstabs.init({
-  activeTab: 0
-})
+// window.morrisonstabs.init({
+//   activeTab: 0
+// })
